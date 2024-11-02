@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap');
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Heebo', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #1c9d52;
+    color: white;
+}
+
+.header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.github-icon {
+    position: absolute;
+    left: 20px;
+    width: 32px;
+    height: 32px;
+    filter: invert(100%);
+}
+
+.button-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 15px;
+    background-color: #e6f3e8;
+    border-bottom: 1px solid #d1e7d8;
+}
+
+button {
+    font-size: 16px;
+    color: white;
+    background-color: #1c9d52;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #14843d;
+}
+
+input[type="file"] {
+    border: none;
+    background-color: #ddd;
+    color: #333;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 80%;
+    justify-content: center;
+}
+
+.quadro {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#mynetwork {
+    width: 100%;
+    height: 500px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background-color: #1c9d52;
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    width: 100%;
+    bottom: 0 ;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .button-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mynetwork {
+        height: 400px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .quadro {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    #mynetwork {
+        height: 300px;
+    }
+}
+
+.main-section {
+    display: flex;
+    align-items: flex-start;
+    margin: 0 auto;
+    gap: 20px; /* Espaço entre o grafo e o quadro de resultados */
+    padding: 20px;
+}
+
+#mynetwork {
+    flex: 3;
+    max-width: 100%; /* Ajuste para controlar o tamanho do grafo */
+    height: 500px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quadro {
+    flex: 1;
+    max-width: 250px; /* Ajuste para controlar o tamanho do quadro de resultados */
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#mynetwork .vis-network canvas {
+    min-width: 600px !important;
+    max-width: 1000px !important;
+    aspect-ratio: 21 / 9 !important;
+}
+
+.resultadoOpener {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .main-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mynetwork, .quadro {
+        max-width: 100%;
+    }
+}

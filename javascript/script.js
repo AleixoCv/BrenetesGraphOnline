@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <button id="naoDirecionadaButton">Não-Direcionada</button>
                     <input type="text" id="labelAresta" placeholder="Label da Aresta">
                     <button id="confirmaButton">Confirma</button>
+                    <button id="closeModal">Fechar</button>
                 `;
                 modal.style.position = "fixed";
                 modal.style.top = "50%";
@@ -48,6 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 const labelArestaInput = document.getElementById("labelAresta");
 
                 naoDirecionadaButton.classList.add("active-button");
+
+                closeModal.addEventListener("click", function () {
+                    document.body.removeChild(modal);
+                })
 
                 direcionadaButton.addEventListener("click", function () {
                     direcionadaButton.classList.add("active-button");
@@ -109,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <button id="direcionadaButton">Direcionada</button>
             <button id="naoDirecionadaButton">Não-Direcionada</button>
             <button id="confirmaButton">Confirma</button>
+            <button id="closeModal">Fechar</button>
         `;
         modal.style.position = "fixed";
         modal.style.top = "50%";
@@ -125,6 +131,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const confirmaButton = document.getElementById("confirmaButton");
 
         naoDirecionadaButton.classList.add("active-button");
+
+        closeModal.addEventListener("click", function () {
+            document.body.removeChild(modal);
+        })
 
         direcionadaButton.addEventListener("click", function () {
             direcionadaButton.classList.add("active-button");
@@ -190,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <input type="text" id="labelNode1" placeholder="Label do Nó 1">
             <input type="text" id="labelNode2" placeholder="Label do Nó 2">
             <button id="confirmaAdjacenciaButton">Confirma</button>
+            <button id="closeModal">Fechar</button>
         `;
         modal.style.position = "fixed";
         modal.style.top = "50%";
@@ -204,6 +215,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const confirmaAdjacenciaButton = document.getElementById("confirmaAdjacenciaButton");
         const labelNode1Input = document.getElementById("labelNode1");
         const labelNode2Input = document.getElementById("labelNode2");
+
+        closeModal.addEventListener("click", function () {
+            document.body.removeChild(modal);
+        })
 
         confirmaAdjacenciaButton.addEventListener("click", function () {
             const labelNode1 = labelNode1Input.value.trim();
@@ -246,6 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <input type="text" id="verticeOrigem" placeholder="Vértice de Origem">
             <input type="text" id="verticeDestino" placeholder="Vértice de Destino">
             <button id="calculaCaminhoButton">Calcular Caminho</button>
+            <button id="closeModal">Fechar</button>
         `;
         modal.style.position = "fixed";
         modal.style.top = "50%";
@@ -260,6 +276,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const calculaCaminhoButton = document.getElementById("calculaCaminhoButton");
         const verticeOrigemInput = document.getElementById("verticeOrigem");
         const verticeDestinoInput = document.getElementById("verticeDestino");
+
+        closeModal.addEventListener("click", function () {
+            document.body.removeChild(modal);
+        })
 
         calculaCaminhoButton.addEventListener("click", function () {
             const origemLabel = verticeOrigemInput.value.trim().toUpperCase();
@@ -434,6 +454,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <button id="naoDirecionadoButton" class="active-button">Não Direcionado</button>
             <textarea id="inputArestas" placeholder="Digite as arestas"></textarea>
             <button id="gerarGrafoButton">Gerar Grafo</button>
+            <button id="closeModal">Fechar</button>
         `;
         modal.style.position = "fixed";
         modal.style.top = "50%";
@@ -447,6 +468,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const direcionadoButton = document.getElementById("direcionadoButton");
         const naoDirecionadoButton = document.getElementById("naoDirecionadoButton");
         const gerarGrafoButton = document.getElementById("gerarGrafoButton");
+
+        closeModal.addEventListener("click", function () {
+            document.body.removeChild(modal);
+        })
 
         direcionadoButton.addEventListener("click", function () {
             direcionadoButton.classList.add("active-button");

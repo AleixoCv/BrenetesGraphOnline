@@ -6,6 +6,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById("mynetwork");
     const data = { nodes: nodes, edges: edges };
     const options = {
+        nodes: {
+            shape: 'circle', // Forma do nó
+            size: 30, // Tamanho padrão dos nós
+            color: {
+                background: '#1c9d52', // Cor de fundo padrão
+                border: '#fff' // Cor da borda padrão
+            },
+            borderWidth: 2, // Largura da borda padrão
+            font: {
+                size: 14, // Tamanho da fonte
+                face: 'arial', // Fonte
+                color: '#ffffff', // Cor do texto
+                align: 'middle', // Alinhamento do texto
+            },
+            widthConstraint: {
+                maximum: 100 // Tamanho máximo do texto para manter a forma circular
+            }
+        },
+        edges: {
+            color: {
+                color: '#848484', 
+                highlight: '#353d3a', 
+                hover: '#858987', 
+                opacity: 0.7 
+            },
+            width: 1.5, // Largura padrão da aresta
+            selectionWidth: 2.5, // Largura da aresta ao ser selecionada
+            smooth: {
+                type: 'discrete' 
+            },
+        },    
         interaction: {
             navigationButtons: true,
         },
@@ -86,7 +117,41 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
         },
+        physics: {
+            enabled: true,
+            forceAtlas2Based: {
+                theta: 0.5,
+                gravitationalConstant: -50,
+                centralGravity: 0.01,
+                springConstant: 0.08,
+                springLength: 100,
+                damping: 0.4,
+                avoidOverlap: 0
+              },
+        }
     };
+
+    const verificarEulerButton = document.getElementById("verificarEulerButton");
+
+    verificarEulerButton.addEventListener("click", function () {
+        const graus = {};
+        
+        // Calcula o grau de cada vértice
+        edges.forEach(edge => {
+            graus[edge.from] = (graus[edge.from] || 0) + 1;
+            graus[edge.to] = (graus[edge.to] || 0) + 1;
+        });
+
+        const oddDegreeCount = Object.values(graus).filter(grau => grau % 2 !== 0).length;
+
+        if (oddDegreeCount === 0) {
+            showResult("O grafo é um grafo Euleriano.");
+        } else if (oddDegreeCount === 2) {
+            showResult("O grafo é um grafo Semi-Euleriano.");
+        } else {
+            showResult("O grafo não é um grafo Euleriano.");
+        }
+    });
 
     const getOrderButton = document.getElementById("getOrderButton");
     const getSizeButton = document.getElementById("getSizeButton");
@@ -601,6 +666,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     network = new vis.Network(container, data, options);
 });
+
+
 
 function showQuadro() {
     div = document.getElementById("quadro1");

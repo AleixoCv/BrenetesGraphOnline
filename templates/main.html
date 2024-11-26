@@ -7,6 +7,7 @@
     <title>GraphsOnline</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -26,13 +27,13 @@
         <button class="quadroOpener" id="calcularDiametroButton" onclick="showQuadro()">Calcular Diâmetro</button>
         <button class="quadroOpener" id="verificarEulerButton" onclick="showQuadro()">Euler</button>
         <button id="openModalButton">Gerar Grafo de Texto</button>
+        <button id="imprimirGrafoButton">Imprimir Grafo</button>
         <input type="file" id="fileInput" accept=".csv">
     </nav>
 
     <main class="main-content">
-        <section class="main-section">
+        <section class="main-section" id="mainsec">
             <div id="mynetwork"></div>
-            
             <div class="quadro" id="quadro1">
                 <p id="result-container">Resultados aparecerão aqui</p>
             </div>

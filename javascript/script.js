@@ -131,6 +131,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
+    const imprimirGrafoButton = document.getElementById("imprimirGrafoButton");
+
+    imprimirGrafoButton.addEventListener("click", function () {
+        html2canvas(document.getElementById("mainsec")).then(function (canvas) {
+            const imgData = canvas.toDataURL("image/png");
+
+            const link = document.createElement('a');
+            link.href = imgData;
+            link.download = 'grafo.png';
+
+            link.click();
+        });
+    });
+
     const verificarEulerButton = document.getElementById("verificarEulerButton");
 
     verificarEulerButton.addEventListener("click", function () {
